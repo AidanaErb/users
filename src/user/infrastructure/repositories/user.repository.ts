@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/user/domain/entities/user.entity';
+import { User } from '../../domain/entities/user.entity';
 import { UserMapper } from '../database/mappers/user.mapper';
-import { IUserRepository } from 'src/user/domain/repositories/user.repository.interface';
+import { IUserRepository } from '../../domain/repositories/user.repository.interface';
 import { UserModel } from '../database/entities/user.model';
 
 @Injectable()
@@ -29,6 +29,16 @@ export class UserRepository implements IUserRepository {
     async getById(id: string): Promise<User> {
         const user = await this._userModel.findOne({
             where: { id },
+        });
+        if (!user) {
+            return null;
+        }
+        return UserMapper.toDomain(user);
+    }
+
+    async getByEmail(email: string): Promise<User> {
+        const user = await this._userModel.findOne({
+            where: { email },
         });
         if (!user) {
             return null;

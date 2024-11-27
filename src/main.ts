@@ -10,6 +10,7 @@ async function bootstrap() {
     app.useGlobalPipes(
         new ValidationPipe({
             exceptionFactory: errors => {
+                console.log(errors);
                 return new InvalidInputException({
                     message: 'Validation Error',
                     errors: errors.map(err => ({

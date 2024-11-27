@@ -2,11 +2,11 @@ import { CoreExceptionCode } from '../../../shared/common/exceptions/core-except
 import { CoreException } from '../../../shared/common/exceptions/core.exception';
 import { ErrorKind } from '../../../shared/common/exceptions/error-kind';
 
-export class UserNotFoundException extends CoreException {
-    public code = CoreExceptionCode.UserNotFound;
+export class UserAlreadyExistsException extends CoreException {
+    public code = CoreExceptionCode.UserAlreadyExists;
     public readonly kind = ErrorKind.EntityNotFound;
 
-    constructor(message = 'User not found', metadata = {}) {
+    constructor(message = 'User already exists', metadata = {}) {
         super(message, metadata);
     }
 }

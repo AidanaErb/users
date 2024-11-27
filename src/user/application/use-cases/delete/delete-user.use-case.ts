@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IUseCase } from 'src/shared/common/use-case.interface';
-import { InjectUserRepository } from 'src/user/infrastructure/inject-tokens';
+import { IUseCase } from '../../../../shared/common/use-case.interface';
+import { InjectUserRepository } from '../../../infrastructure/inject-tokens';
 import { DeleteUserUseCaseDto } from './delete-user.uc-dto';
-import { IUserRepository } from 'src/user/domain/repositories/user.repository.interface';
-import { UserNotFoundException } from 'src/user/domain/exceptions/user-not-found.exception';
+import { IUserRepository } from '../../../domain/repositories/user.repository.interface';
+import { UserNotFoundException } from '../../../domain/exceptions/user-not-found.exception';
 
 @Injectable()
 export class DeleteUserUseCase implements IUseCase<DeleteUserUseCaseDto, boolean> {

@@ -1,6 +1,6 @@
 import { Expose } from 'class-transformer';
 import { randomUUID } from 'crypto';
-import { Entity } from 'src/shared/common/entity';
+import { Entity } from '../../../shared/common/entity';
 
 export interface IUserCreationAttributes {
     email: string;

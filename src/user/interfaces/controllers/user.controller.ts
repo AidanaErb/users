@@ -1,13 +1,13 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { CreateUserUseCaseDto } from 'src/user/application/use-cases/create/create-user.uc-dto';
-import { CreateUserUseCase } from 'src/user/application/use-cases/create/create-user.use-case';
-import { DeleteUserUseCase } from 'src/user/application/use-cases/delete/delete-user.use-case';
-import { GetAllUsersUseCase } from 'src/user/application/use-cases/get-all/get-all-users.use-case';
-import { GetUserByIdUseCase } from 'src/user/application/use-cases/get-by-id/get-user-by-id.use-case';
-import { UpdateUserUseCaseDto } from 'src/user/application/use-cases/update/update-user.uc-dto';
-import { UpdateUserUseCase } from 'src/user/application/use-cases/update/update-user.use-case';
+import { CreateUserUseCaseDto } from '../../application/use-cases/create/create-user.uc-dto';
+import { CreateUserUseCase } from '../../application/use-cases/create/create-user.use-case';
+import { DeleteUserUseCase } from '../../application/use-cases/delete/delete-user.use-case';
+import { GetAllUsersUseCase } from '../../application/use-cases/get-all/get-all-users.use-case';
+import { GetUserByIdUseCase } from '../../application/use-cases/get-by-id/get-user-by-id.use-case';
+import { UpdateUserUseCaseDto } from '../../application/use-cases/update/update-user.uc-dto';
+import { UpdateUserUseCase } from '../../application/use-cases/update/update-user.use-case';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
     constructor(
         private readonly _createUserUseCase: CreateUserUseCase,
@@ -20,6 +20,11 @@ export class UserController {
     @Post()
     async create(@Body() createUserDto: CreateUserUseCaseDto) {
         return await this._createUserUseCase.execute(createUserDto);
+    }
+
+    @Get()
+    async getHello() {
+        return 'Hello World!';
     }
 
     @Get('all')

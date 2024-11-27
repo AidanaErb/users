@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IUseCase } from 'src/shared/common/use-case.interface';
-import { InjectUserRepository } from 'src/user/infrastructure/inject-tokens';
-import { UserDto } from 'src/user/interfaces/dto/user.dto';
-import { IUserRepository } from 'src/user/domain/repositories/user.repository.interface';
-import { UserMapper } from 'src/user/infrastructure/database/mappers/user.mapper';
+import { IUseCase } from '../../../../shared/common/use-case.interface';
+import { InjectUserRepository } from '../../../infrastructure/inject-tokens';
+import { UserDto } from '../../../interfaces/dto/user.dto';
+import { IUserRepository } from '../../../domain/repositories/user.repository.interface';
+import { UserMapper } from '../../../infrastructure/database/mappers/user.mapper';
 
 @Injectable()
 export class GetAllUsersUseCase implements IUseCase<void, UserDto[]> {
